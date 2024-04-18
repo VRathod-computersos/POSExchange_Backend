@@ -68,7 +68,7 @@ def connect_to_database_master_db():
 def connect_to_database_company(company_name):
     # Updating the company_db dictionary with the dynamic company name
     company_db["database"] = company_name
-    print(company_db, company_name)
+   
     try:
         db = mysql.connector.connect(**company_db)
         print(f"Connected to MySQL Server - Company DB ({company_name})")
