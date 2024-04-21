@@ -6,6 +6,8 @@ from .graphql.operations.registerSeller import Query as RegisterQuery, Mutation 
 from .graphql.operations.LoginUser import Query as LoginQuery, Mutation as LoginMutation
 import graphene
 from .graphql.operations.LoginUser import Query as LogoutQuery, Mutation as LogoutMutation
+from .graphql.screencontent.termsandcondition import TermsAndCondition
+
 app = FastAPI()
 
 app.add_route(
@@ -23,6 +25,10 @@ app.add_route(
     GraphQLApp(schema=graphene.Schema(query=LogoutQuery, mutation=LogoutMutation)),
 )
 
+app.add_route(
+    "/terms",
+    GraphQLApp(schema=graphene.Schema(query=TermsAndCondition)),
+)
 
 # if __name__ =="__main__":
 #     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
